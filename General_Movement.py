@@ -1,23 +1,16 @@
-import Level_Creation
-import colorama
+import Level_Creation_Random
+import Characters
 
-def hero_movement(x_hero, y_hero, grid):
+def hero_movement(grid, row_range, column_range):
 
-    Level_Creation.draw_grid(grid)
-    new_x = x_hero
-    new_y = y_hero
+    Level_Creation_Random.draw_grid(grid, row_range, column_range)
+    new_x = Characters.Hero.x
+    new_y = Characters.Hero.y
     up = "UP  "
     down = "DOWN  "
     left = "LEFT  "
     right = "RIGHT  "
-    if x_hero + 1 > 9:
-        down = "   "
-    if x_hero - 1 < 0:
-        up = "   "
-    if y_hero - 1 > 9:
-        left = "   "
-    if y_hero + 1 < 0:
-        right = "   "
+
     # Impediscono l'input di una direzione se questa porta fuori dal livello diventa obsoleto se miglioro l'algoritmo
     # per la creazione dei muri e delle vie
     choice = input(f'''
@@ -42,12 +35,18 @@ def hero_movement(x_hero, y_hero, grid):
 
     if choice == "left": # y-1
        new_y -= 1
-    if choice == "right":
+    elif choice == "right":
        new_y += 1
-    if choice == "down": # x + 1
+    elif choice == "down": # x + 1
         new_x += 1
-    if choice == "up":
+    elif choice == "up":
        new_x -= 1
+    else:
+        print('''Invalid move
+        
+        ''')
+        hero_movement(x_hero, y_hero, grid, row_range, column_range)
+
     if grid[new_x][new_y].content != " ":
         print('''
         ____________________________
@@ -55,11 +54,11 @@ def hero_movement(x_hero, y_hero, grid):
         |La cella e' gia occupata  |
         |__________________________|
         ''')
-        hero_movement(x_hero, y_hero, grid)
-    else:
-        grid[x_hero][y_hero].content = " "
+        hero_movement(grid, row_range, column_range)
+    else: # E' riferito all'if direttamente sopra
+        grid[Characters.Hero.x][Characters.Hero.y].content = " "
         grid[new_x][new_y].content = "@"
-        return new_x, new_y
+        Characters.Hero.x, Characters.Hero.y = new_x, new_y
     # aggiorno le coordinate di Hero
 
 def enemy_movement():

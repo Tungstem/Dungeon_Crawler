@@ -12,6 +12,9 @@ def print_title():
     # Usato per resettare ai volori iniziali gli elementi
 
 
+def battle_menu():
+    pass
+
 
 def item_menu():
     pass
@@ -31,10 +34,11 @@ def show_menu():
     ||Possible actions:  ||
     ||                   ||
     || 1)Move            ||
-    || 2)Items           ||
-    || 3)Magic           ||
-    || 4)Skills          ||
-    || 5)Exit            ||
+    || 2)Fight           ||
+    || 3)Items           ||
+    || 4)Magic           ||
+    || 5)Skills          ||
+    || 6)Exit            ||
     ||___________________||
     What's your choice HERO? 
     ''')
