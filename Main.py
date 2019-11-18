@@ -13,9 +13,10 @@ enemy_list = Level_Creation_Random.fill_grid(level, level_row, level_column)
 while playing:
 
     # Momentaneamente usato per vedere se funziona la lista enemy
-    # for x in enemy_list:
+    #for x in enemy_list:
     #    print(x.name)
-    #   print(x.x, x.y)
+    #    print(x.x, x.y, x.max_hp, x.max_mp, x.body, x.mind, x.luck)
+
 
     Level_Creation_Random.draw_grid(level, level_row, level_column)
     choice = On_Screen.show_menu()
