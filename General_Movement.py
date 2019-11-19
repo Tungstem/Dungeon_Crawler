@@ -11,8 +11,6 @@ def hero_movement(grid, row_range, column_range):
     left = "LEFT  "
     right = "RIGHT  "
 
-    # Impediscono l'input di una direzione se questa porta fuori dal livello diventa obsoleto se miglioro l'algoritmo
-    # per la creazione dei muri e delle vie
     choice = input(f'''
     _____________________________________
     |        |                 |        |
@@ -45,7 +43,7 @@ def hero_movement(grid, row_range, column_range):
         print('''Invalid move
         
         ''')
-        hero_movement(x_hero, y_hero, grid, row_range, column_range)
+        hero_movement(grid, row_range, column_range)
 
     if grid[new_x][new_y].content != " ":
         print('''

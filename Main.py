@@ -9,6 +9,7 @@ On_Screen.print_title()
 level, level_row, level_column = Level_Creation_Random.create_grid()
 Level_Creation_Random.initialize_grid(level, level_row, level_column)
 enemy_list = Level_Creation_Random.fill_grid(level, level_row, level_column)
+# Ritorna la lista dei nemici in modo da poter passare ad altre funzioni le stat dei nemici presenti
 
 while playing:
 
@@ -21,9 +22,11 @@ while playing:
     Level_Creation_Random.draw_grid(level, level_row, level_column)
     choice = On_Screen.show_menu()
     if choice == "1":
-        General_Movement.hero_movement(level, level_row, level_column)  # I movimenti sono gestiti direttamente nel modulo on screen
+        General_Movement.hero_movement(level, level_row, level_column)
+    # I movimenti sono gestiti direttamente nel modulo On Screen
     if choice == "2":
-        On_Screen.battle_menu()
+        Level_Creation_Random.draw_grid(level, level_row, level_column)
+        On_Screen.battle_menu(level, enemy_list)
     if choice == "3":
         On_Screen.item_menu()
     if choice == "4":
