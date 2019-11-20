@@ -84,6 +84,14 @@ def fill_grid(current_grid, row_range, column_range):
     row, column = chosen
     Characters.Hero.x, Characters.Hero.y = row, column
     current_grid[row][column].content = "@"
-    enemy_list.append("PolipoPoli")  # Una volta spawnati i nemici lo reinserisco nella lista in modo da tener conto
-                                     # della sua presenza
+    # Inizializzo hero momenaneamente per verificare che tutto funzioni
+    Characters.Hero.name = "H_Jack"
+    Characters.Hero.max_hp = 100
+    Characters.Hero.hp = 100
+    Characters.Hero.max_mp = 100
+    Characters.Hero.mp = 100
+    Characters.Hero.body = 100
+    Characters.Hero.mind = 100
+    Characters.Hero.luck = 100
+    # Ricordati di rimuoverlo
     return enemy_list  # restituisco a main le coordinate di MC in modo da potermi muovere

@@ -39,6 +39,8 @@ def hero_movement(grid, row_range, column_range):
         new_x += 1
     elif choice == "up":
        new_x -= 1
+    elif choice == "return":
+        return
     else:
         print('''Invalid move
         

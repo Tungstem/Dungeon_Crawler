@@ -2,6 +2,7 @@ import Level_Creation_Random
 import On_Screen
 import General_Movement
 import Characters
+import random
 
 
 playing = True
@@ -12,13 +13,10 @@ enemy_list = Level_Creation_Random.fill_grid(level, level_row, level_column)
 # Ritorna la lista dei nemici in modo da poter passare ad altre funzioni le stat dei nemici presenti
 
 while playing:
-
     # Momentaneamente usato per vedere se funziona la lista enemy
     #for x in enemy_list:
-    #    print(x.name)
-    #    print(x.x, x.y, x.max_hp, x.max_mp, x.body, x.mind, x.luck)
-
-
+     #   print(x.name)
+     #   print(x.x, x.y, x.max_hp, x.max_mp, x.body, x.mind, x.luck)
     Level_Creation_Random.draw_grid(level, level_row, level_column)
     choice = On_Screen.show_menu()
     if choice == "1":
@@ -26,7 +24,7 @@ while playing:
     # I movimenti sono gestiti direttamente nel modulo On Screen
     if choice == "2":
         Level_Creation_Random.draw_grid(level, level_row, level_column)
-        On_Screen.battle_menu(level, enemy_list)
+        On_Screen.target_menu(level, enemy_list)
     if choice == "3":
         On_Screen.item_menu()
     if choice == "4":
